@@ -1,0 +1,16 @@
+class Personaje:
+    def __init__(self):
+        self.hp = 1000
+        self.nivel = 1
+        self.esta_vivo = True
+    def atacar(self, objetivo, dano):
+        objetivo.hp -= dano
+        if objetivo.hp <= 0:
+            objetivo.hp = 0
+            objetivo.esta_vivo = False
+    def curar(self, cantidad):
+        if self.esta_vivo:
+            self.hp += cantidad
+            if self.hp > 1000:
+                self.hp = 1000
+    
