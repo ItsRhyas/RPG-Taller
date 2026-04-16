@@ -10,3 +10,9 @@ class Personaje:
         if objetivo.hp <= 0:
             objetivo.hp = 0
             objetivo.esta_vivo = False
+    def curar(self, cantidad):
+        if self.esta_vivo:
+            self.hp += cantidad
+            if self.hp > 1000:
+                self.hp = 1000
+    

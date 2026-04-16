@@ -20,3 +20,25 @@ def test_personaje_muere_si_hp_llega_a_cero():
     enemigo.atacar(heroe, dano=1500)
     assert heroe.hp == 0 # El HP no debe quedar en -500
     assert heroe.esta_vivo == False
+def test_curar_personaje():
+    heroe = Personaje()
+    heroe.hp = 500
+    # Act
+    heroe.curar(300)
+    # Assert
+    assert heroe.hp == 800
+def test_curar_mas_del_maximo():
+    heroe = Personaje()
+    heroe.hp = 900
+    heroe.curar(200)
+    assert heroe.hp == 1000 # El HP no debe superar el máximo de 1000
+def test_los_muertos_no_se_curan():
+    heroe = Personaje()
+    enemigo = Personaje()
+    enemigo.atacar(heroe, dano=1500) # El héroe muere
+    heroe.curar(500) # Intentamos curar al héroe muerto
+    assert heroe.hp == 0 # El HP no debe cambiar
+    assert heroe.esta_vivo == False # El estado de vida no debe cambiar
+
+
+    
