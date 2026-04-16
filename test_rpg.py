@@ -41,4 +41,4 @@ def test_los_muertos_no_se_curan():
     assert heroe.esta_vivo == False # El estado de vida no debe cambiar
 
 
-    
+
